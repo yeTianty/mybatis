@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuxin.dao.IUserDao">
+
+    <!--配置查询所有-->
+    <select id="findTYAll" resultType="com.wuxin.domain.User">
+        select * from user
+    </select>
+
+    <!--查询指定id-->
+    <select id="findTYOne" resultType="com.wuxin.domain.User" parameterType="int">
+        select * from user where id = #{uid}
+    </select>
+
+<!--    删除指定id-->
+    <select id="deleteTYOne" resultType="com.wuxin.domain.User" parameterType="int">
+        delete from user where id = #{uid}
+    </select>
+
+    <!--增加用户-->
+    <select id="insertTYOne" parameterType="com.wuxin.domain.User">
+        insert into user (username,birthday,sex,address)values (#{username},#{birthday},#{sex},#{address});
+    </select>
+
+    <!--更新用户-->
+    <update id="updateTYOne" parameterType="com.wuxin.domain.User">
+        update user set username = #{username},birthday = #{birthday},sex = #{sex},address = #{address} where id = #{id}
+    </update>
+
+
+
+</mapper>
